@@ -116,9 +116,13 @@ public class DBHandlerBokliste implements AutoCloseable
     @Override
     public void close() throws Exception
     {
-        if (dbConnection != null)
-        {
-            dbConnection.close();
-        }
+        pstmtUpdateTittel.close();
+        pstmtUpdateForfatter.close();
+        pstmtDeleteTittel.close();
+        pstmtDeleteForfatter.close();
+        pstmtInsertRow.close();
+        pstmtGetTable.close();
+        pstmtGetRow.close();
+        dbConnection.close();
     }
 }
