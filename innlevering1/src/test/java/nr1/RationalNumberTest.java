@@ -11,17 +11,35 @@ public class RationalNumberTest
 {
 
     @Test
-    public void testConstructors() throws Exception
+    public void testAllArgsConstructor() throws Exception
+    {
+        // Testing the normal constructor
+        RationalNumber rationalNumber1 = new RationalNumber(5, 10);
+        assertEquals("Numerator not 5", 5, rationalNumber1.getNumerator());
+        assertEquals("Denominator not 10", 10, rationalNumber1.getDenominator());
+    }
+
+    @Test
+    public void testNoArgsConstructor() throws Exception
     {
         // Testing the no-arg constructor
         RationalNumber rationalNumber = new RationalNumber();
         assertEquals("Numerator not 0", 0, rationalNumber.getNumerator());
         assertEquals("Denominator not 1", 1, rationalNumber.getDenominator());
+    }
 
-        // Testing the normal constructor
-        RationalNumber rationalNumber1 = new RationalNumber(5, 10);
-        assertEquals("Numerator not 5", 5, rationalNumber1.getNumerator());
-        assertEquals("Denominator not 10", 10, rationalNumber1.getDenominator());
+    @Test
+    public void testGetters() throws Exception
+    {
+        RationalNumber rationalNumber = new RationalNumber(1, 2);
+        assertEquals("Numerator not 1", 1, rationalNumber.getNumerator());
+        assertEquals("Denumerator not 2", 2, rationalNumber.getDenominator());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testZeroDenumerator() throws Exception
+    {
+        new RationalNumber(2, 0);
     }
 
     @Test
@@ -72,6 +90,13 @@ public class RationalNumberTest
         assertEquals(new RationalNumber(1, 1), new RationalNumber(1, 2).divide(new RationalNumber(1, 2)));
         assertEquals(new RationalNumber(2, 3), new RationalNumber(10, 20).divide(new RationalNumber(3, 4)));
         assertEquals(new RationalNumber(2, -1), new RationalNumber(4, 2).divide(new RationalNumber(-2, 2)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivideByZero() throws Exception
+    {
+        RationalNumber rationalNumber = new RationalNumber(1, 2);
+        rationalNumber.divide(new RationalNumber(0, 1));
     }
 
     @Test
