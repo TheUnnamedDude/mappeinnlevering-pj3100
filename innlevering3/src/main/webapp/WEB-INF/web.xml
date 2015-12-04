@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+    "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Innlevering 3</display-name>
+
+    <servlet>
+        <servlet-name>MusikkValg</servlet-name>
+        <servlet-class>no.kevin.innlevering3.MusikkValg</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MusikkValg</servlet-name>
+        <url-pattern>/musikk</url-pattern>
+    </servlet-mapping>
+</web-app>

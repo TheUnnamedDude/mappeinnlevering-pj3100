@@ -1,0 +1,1 @@
+For at oppgaven skal kjøre må man enten laste ned mysql connector og compile med den som et dependency eller bruke maven. Tviler på at det er noe jeg ville gjort veldig forskjellig annet enn å ikke ha hvilke database informasjonen skal lagres i hardkodet. Har ikke lært noe av oppgaven ettersom jeg har lært meg å bruke jdbc for en god stund siden.
