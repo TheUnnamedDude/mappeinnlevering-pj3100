@@ -52,6 +52,15 @@ public class RationalNumberTest
     }
 
     @Test
+    public void testAlternativeEquals() throws Exception
+    {
+        RationalNumber rationalNumber = new RationalNumber(6, 12);
+        assertTrue(rationalNumber.equals(rationalNumber));
+        assertTrue(rationalNumber.equals(new RationalNumber(1, 2)));
+        assertFalse(rationalNumber.equals(new RationalNumber(1, 3)));
+    }
+
+    @Test
     public void testAdd() throws Exception
     {
         RationalNumber rationalNumber = new RationalNumber(2, 6);
@@ -119,4 +128,20 @@ public class RationalNumberTest
         assertEquals(4, new RationalNumber(12, 4).gcd(36, 8));
     }
 
+    @Test
+    public void testToString() throws Exception
+    {
+        RationalNumber twoSixths = new RationalNumber(2, 6);
+        assertEquals("2/6", twoSixths.toString());
+        RationalNumber two = new RationalNumber(2, 1);
+        assertEquals("2", two.toString());
+        RationalNumber zeroThirds = new RationalNumber(0, 3);
+        assertEquals("0", zeroThirds.toString());
+
+        /*
+        // Skal den egentlig se dette som 2, eller 6/3?
+        RationalNumber sixThirds = new RationalNumber(6, 3);
+        assertEquals("2", sixThirds.toString());
+        */
+    }
 }
