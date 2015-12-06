@@ -2,6 +2,8 @@ package nr1;
 
 import org.junit.Test;
 
+import java.lang.reflect.Method;
+
 import static org.junit.Assert.*;
 
 /**
@@ -145,5 +147,18 @@ public class RationalNumberTest
         RationalNumber sixThirds = new RationalNumber(6, 3);
         assertEquals("2", sixThirds.toString());
         */
+    }
+
+    @Test
+    public void testGcdUsingReflections() throws Exception
+    {
+        Method gcdMethod = RationalNumber.class.getMethod("gcd", int.class, int.class);
+        // Note, this can throw a exception if the jvm has a modified securitymanager
+        // Although that should never happen when it compiles.
+        // Setting it as accessible is needed if the method is private.
+        gcdMethod.setAccessible(true);
+        assertEquals(2, gcdMethod.invoke(new RationalNumber(4, 2), 2, 4));
+        assertEquals(2, gcdMethod.invoke(new RationalNumber(-4, 2), 4, 2));
+        assertEquals(4, gcdMethod.invoke(new RationalNumber(12, 4), 36, 8));
     }
 }
