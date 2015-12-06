@@ -49,6 +49,7 @@ public class RationalNumberTest
         assertEquals(rationalNumber, rationalNumber);
         assertEquals(new RationalNumber(1, 2), rationalNumber);
         assertNotEquals(new RationalNumber(1, 3), rationalNumber);
+        assertEquals(new RationalNumber(4, 1), new RationalNumber(12, 3));
     }
 
     @Test
@@ -58,6 +59,7 @@ public class RationalNumberTest
         assertTrue(rationalNumber.equals(rationalNumber));
         assertTrue(rationalNumber.equals(new RationalNumber(1, 2)));
         assertFalse(rationalNumber.equals(new RationalNumber(1, 3)));
+        assertTrue(new RationalNumber(4, 1).equals(new RationalNumber(12, 3)));
     }
 
     @Test
